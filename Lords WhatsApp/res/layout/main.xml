@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_margin="10dip"
+    android:background="@color/black">
+
+    <TextView
+        android:id="@+id/mainTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select activity:"/>
+    
+        <Button
+        android:id="@+id/mainButton1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dip"
+        android:textColor="@color/orange"
+        android:text="Activity1" />
+        
+        <Button
+        android:id="@+id/mainButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dip"
+        android:textColor="@color/orange"
+        android:text="Activity2" />
+        
+        <Button
+        android:id="@+id/mainButton3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dip"
+        android:textColor="@color/orange"
+        android:text="Activity3" />
+        
+        <Button
+        android:id="@+id/mainButton4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dip"
+        android:textColor="@color/orange"
+        android:text="Activity4" />
+                
+        <Button
+        android:id="@+id/mainButton5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dip"
+        android:textColor="@color/orange"
+        android:text="Activity5" />
+    
+</LinearLayout>
+

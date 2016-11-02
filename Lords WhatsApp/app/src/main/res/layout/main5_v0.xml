@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_margin="10dip"
+    android:background="@color/black">
+
+    <ImageView
+        android:layout_width="291dp"
+        android:layout_height="269dp"
+        android:id="@+id/imageView"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/lo_logo" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lords Mobile chat "
+        android:textColor="@color/white"
+        android:id="@+id/textView"
+        android:layout_gravity="center_horizontal" />
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/serverET"
+        android:focusable="true"
+        android:selectAllOnFocus="true"
+        android:layout_gravity="center_horizontal"
+        android:text="Server" />
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:inputType="numberSigned"
+        android:focusable="true"
+        android:selectAllOnFocus="true"
+        android:ems="10"
+        android:id="@+id/portET"
+        android:layout_gravity="center_horizontal"
+        android:text="Port" />
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Username"
+        android:focusable="true"
+        android:selectAllOnFocus="true"
+        android:ems="10"
+        android:id="@+id/usernameET"
+        android:layout_gravity="center_horizontal" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Continue"
+        android:id="@+id/mainButton"
+        android:layout_gravity="center_horizontal" />
+</LinearLayout>
+
+
+
+
+
+

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<resources>
+    
+    <style name="OrangeTheme" parent="@android:style/Theme">
+        <item name="android:windowNoTitle">true</item> 
+        <item name="android:windowBackground">@color/black</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/orange</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:typeface">serif</item>
+    </style>
+    
+    <style name="OrangeTheme.myScrollBar" >  
+<!--    
+        <item name="android:scrollbarStyle">outsideOverlay</item>
+        <item name="android:fadeScrollbars">false</item>
+            
+        <item name="android:scrollbarThumbVertical">@drawable/scroller_thumb</item>
+        <item name="android:scrollbarTrackVertical">@drawable/scroller_bar</item>
+        
+        <item name="android:fastScrollAlwaysVisible">true</item>    -->
+        <item name="android:fastScrollThumbDrawable">@drawable/scroller_thumb</item>
+        <item name="android:fastScrollTrackDrawable">@drawable/scroller_bar</item>   
+        <item name="android:fastScrollEnabled">true</item>       
+    </style>
+    
+
+</resources>
