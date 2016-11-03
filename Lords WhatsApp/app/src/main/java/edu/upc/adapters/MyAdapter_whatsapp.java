@@ -15,7 +15,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import edu.upc.adapterviews.R;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 /**
  *
@@ -25,6 +27,8 @@ public class MyAdapter_whatsapp extends BaseAdapter {
 
   private Context mContext;
   private ArrayList<String> mStrings;
+
+  public Calendar calendar;
 
   public MyAdapter_whatsapp(Context context, ArrayList<String> mStrings) {
     mContext = context;
@@ -38,14 +42,27 @@ public class MyAdapter_whatsapp extends BaseAdapter {
   public View getView(int position, View convertView, ViewGroup parent) {
     
     ViewHolder viewHolder;
+    calendar = Calendar.getInstance();
+    int hour = calendar.get(Calendar.HOUR);
+    int minute = calendar.get(Calendar.MINUTE);
     
     if(convertView==null){
       if(getItemViewType(position) == 0)
-        convertView = LayoutInflater.from(mContext).inflate(R.layout.row_whatsapp_right, parent, false); 
+      {
+        convertView = LayoutInflater.from(mContext).inflate(R.layout.row_whatsapp_right, parent, false);
+
+      }
       if(getItemViewType(position) == 1)
+      {
         convertView = LayoutInflater.from(mContext).inflate(R.layout.row_whatsapp_left, parent, false);
+
+      }
       if(getItemViewType(position) == 2)
+      {
         convertView = LayoutInflater.from(mContext).inflate(R.layout.row_whatsapp_date, parent, false);
+
+      }
+
       viewHolder = new ViewHolder();
       viewHolder.text  = (TextView)  convertView.findViewById(R.id.texto);
       convertView.setTag(viewHolder);
@@ -53,8 +70,17 @@ public class MyAdapter_whatsapp extends BaseAdapter {
     
     viewHolder = (ViewHolder)convertView.getTag();
     if(getItemViewType(position) == 0 || getItemViewType(position) == 1)
+    {
+      if(getItemViewType(position) == 0)
+        viewHolder.hour_text = (TextView)  convertView.findViewById(R.id.right_hour);
+      if(getItemViewType(position) == 1)
+        viewHolder.hour_text = (TextView)  convertView.findViewById(R.id.left_hour);
       viewHolder.text.setText(mStrings.get(position));
-    if(getItemViewType(position) == 2){
+      viewHolder.hour_text.setText(hour + ":" + minute);
+    }
+
+    if(getItemViewType(position) == 2)
+    {
       Date date = new Date();
       viewHolder.text.setText(date.toLocaleString());
     }
@@ -64,6 +90,7 @@ public class MyAdapter_whatsapp extends BaseAdapter {
   
   public class ViewHolder{
     TextView text;
+    TextView hour_text;
   }
 
   public Object getItem(int arg0) {

@@ -30,7 +30,8 @@
         android:paddingBottom="5dip"
         android:textColor="@color/black"
         android:textSize="12dip"
-        android:text="10:05"/> 
+        android:text="10:05"
+        android:id="@+id/left_hour"/>
         
 </RelativeLayout> 
 
