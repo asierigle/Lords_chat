@@ -14,6 +14,8 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import edu.upc.adapterviews.R;
+import edu.upc.util.Message;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -26,25 +28,20 @@ import java.util.GregorianCalendar;
 public class MyAdapter_whatsapp extends BaseAdapter {
 
   private Context mContext;
-  private ArrayList<String> mStrings;
+  private ArrayList<Message> thisMessages;
 
-  public Calendar calendar;
-
-  public MyAdapter_whatsapp(Context context, ArrayList<String> mStrings) {
+  public MyAdapter_whatsapp(Context context, ArrayList<Message> messages) {
     mContext = context;
-    this.mStrings = mStrings;
+    this.thisMessages = messages;
   }
 
   public int getCount() {
-    return mStrings.size();
+    return thisMessages.size();
   }
 
   public View getView(int position, View convertView, ViewGroup parent) {
     
     ViewHolder viewHolder;
-    calendar = Calendar.getInstance();
-    int hour = calendar.get(Calendar.HOUR);
-    int minute = calendar.get(Calendar.MINUTE);
     
     if(convertView==null){
       if(getItemViewType(position) == 0)
@@ -73,10 +70,12 @@ public class MyAdapter_whatsapp extends BaseAdapter {
     {
       if(getItemViewType(position) == 0)
         viewHolder.hour_text = (TextView)  convertView.findViewById(R.id.right_hour);
+
       if(getItemViewType(position) == 1)
         viewHolder.hour_text = (TextView)  convertView.findViewById(R.id.left_hour);
-      viewHolder.text.setText(mStrings.get(position));
-      viewHolder.hour_text.setText(hour + ":" + minute);
+
+      viewHolder.text.setText(thisMessages.get(position).content);
+      viewHolder.hour_text.setText(thisMessages.get(position).date);
     }
 
     if(getItemViewType(position) == 2)
@@ -94,7 +93,7 @@ public class MyAdapter_whatsapp extends BaseAdapter {
   }
 
   public Object getItem(int arg0) {
-    return mStrings.get(arg0);
+    return thisMessages.get(arg0);
   }
 
   public long getItemId(int arg0) {

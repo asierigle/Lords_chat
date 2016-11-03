@@ -1,6 +1,8 @@
 package edu.upc.adapterviews;
 
 import edu.upc.adapters.MyAdapter_whatsapp;
+import edu.upc.util.Message;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
@@ -15,13 +17,12 @@ public class Activity5 extends Activity {
 
   private ListView conversation;
   private MyAdapter_whatsapp adapter;
-  private ArrayList<String> messages;
+  private ArrayList<Message> messages;
   private EditText input_text;
   private TextView title;
   private String user;
 
-  //public Calendar calendar;
-  //public TextView text_hour;
+  public Calendar calendar;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -29,12 +30,11 @@ public class Activity5 extends Activity {
     setContentView(R.layout.main5_v0);
 
     conversation = (ListView) findViewById(R.id.conversation);
-    messages = new ArrayList<String>();
+    messages = new ArrayList<Message>();
     adapter = new MyAdapter_whatsapp(this, messages);
     conversation.setAdapter(adapter);
     input_text = (EditText) findViewById(R.id.input);
     title = (TextView) findViewById(R.id.title);
-    //text_hour = (TextView) findViewById(R.id.right_hour);
 
     Bundle extras = getIntent().getExtras();
 
@@ -43,21 +43,23 @@ public class Activity5 extends Activity {
     user = extras.getString("Username");
 
     title.setText(user + "@" + server + ":" + port);
-
-    //calendar = Calendar.getInstance();
   }
 
   public void addText(final View view) {
 
-    //int hour = calendar.get(Calendar.HOUR);
-    //int minute = calendar.get(Calendar.MINUTE);
+    // Gets the current time
+    calendar = Calendar.getInstance();
+    int hour = calendar.get(Calendar.HOUR);
+    int minute = calendar.get(Calendar.MINUTE);
 
     if(input_text.getEditableText().toString().equals("")) return;
     else
     {
-      messages.add(user + " ha dicho:\n" + input_text.getEditableText().toString());
-      //messages.add(hour + ":" + minute);
-      //text_hour.setText(hour + ":" + minute);
+      // Creates a new message and adds it into the array
+      Message tmp = new Message();
+      tmp.content = (user + " ha dicho:\n" + input_text.getEditableText().toString());
+      tmp.date = (hour + ":" + minute);
+      messages.add(tmp);
     }
     //...
     
