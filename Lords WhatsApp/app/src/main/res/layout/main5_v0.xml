@@ -1,66 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:layout_margin="10dip"
-    android:background="@color/black">
 
-    <ImageView
-        android:layout_width="291dp"
-        android:layout_height="269dp"
-        android:id="@+id/imageView"
-        android:layout_gravity="center_horizontal"
-        android:background="@drawable/lo_logo" />
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_screen"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/wallpaper">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Lords Mobile chat "
-        android:textColor="@color/white"
-        android:id="@+id/textView"
-        android:layout_gravity="center_horizontal" />
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:textColor="@color/black"
+        android:textSize="28dp"
+        android:text="-"
+        android:id="@+id/title"/>
 
-    <EditText
-        android:layout_width="300dp"
+
+    <ListView android:id="@+id/conversation"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:inputType="number"
-        android:ems="10"
-        android:id="@+id/serverET"
-        android:focusable="true"
-        android:selectAllOnFocus="true"
-        android:layout_gravity="center_horizontal"
-        android:text="Server" />
+        android:layout_weight="1"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:cacheColorHint="@android:color/transparent"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="4dp"/>
 
-    <EditText
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:inputType="numberSigned"
-        android:focusable="true"
-        android:selectAllOnFocus="true"
-        android:ems="10"
-        android:id="@+id/portET"
-        android:layout_gravity="center_horizontal"
-        android:text="Port" />
+    <!--    By default, while scrolling the list, the background of the entire list changes to black, so:
+            android:cacheColorHint="@android:color/transparent"
+            but now it seems that it does not happen
+            -->
 
-    <EditText
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="Username"
-        android:focusable="true"
-        android:selectAllOnFocus="true"
-        android:ems="10"
-        android:id="@+id/usernameET"
-        android:layout_gravity="center_horizontal" />
-
-    <Button
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Continue"
-        android:id="@+id/mainButton"
-        android:layout_gravity="center_horizontal" />
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dip"
+        android:background="@color/grey">
+
+        <EditText
+            android:id="@+id/input"
+            android:layout_width="200dip"
+            android:layout_height="50dip"
+            android:paddingLeft="4dp"
+            android:hint="Type text here"
+            android:background="@color/grey"
+            android:textColor="@color/orange"
+            android:inputType="textNoSuggestions|textVisiblePassword"
+            android:text="" />
+
+        <!-- without: android:inputType is multi-line by default (CR instead of DONE softkey)
+                      android:inputType="textCapSentences|textAutoCorrect|            -->
+
+        <Button
+            android:id="@+id/mybutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="addText"
+            android:text="Send"/>
+
+    </LinearLayout>
+
 </LinearLayout>
+
 
 
 

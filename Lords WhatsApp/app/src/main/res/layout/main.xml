@@ -4,14 +4,15 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:layout_margin="10dip"
-    android:background="@color/black">
+    android:background="@drawable/wallpaper">
+
 
     <ImageView
         android:layout_width="291dp"
         android:layout_height="269dp"
         android:id="@+id/imageView"
         android:layout_gravity="center_horizontal"
-        android:background="@drawable/lo_logo" />
+        android:background="@drawable/logo" />
 
     <TextView
         android:layout_width="wrap_content"

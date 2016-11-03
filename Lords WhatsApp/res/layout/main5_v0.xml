@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/backyard_bicycle">
-    
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -17,8 +17,8 @@
         android:textSize="28dp"
         android:rotationX="45"
         android:text="Conversation:" />
-    
-        
+
+
     <ListView android:id="@+id/conversation"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -29,21 +29,21 @@
         android:layout_centerHorizontal="true"
         android:cacheColorHint="@android:color/transparent"
         android:divider="@android:color/transparent"
-        android:dividerHeight="4dp"/>   
-    
-<!--    By default, while scrolling the list, the background of the entire list changes to black, so:
-        android:cacheColorHint="@android:color/transparent"
-        but now it seems that it does not happen
-        -->    
-    
-    <LinearLayout 
+        android:dividerHeight="4dp"/>
+
+    <!--    By default, while scrolling the list, the background of the entire list changes to black, so:
+            android:cacheColorHint="@android:color/transparent"
+            but now it seems that it does not happen
+            -->
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginBottom="20dp"
         android:layout_marginTop="20dip"
         android:background="@color/grey">
-    
+
         <EditText
             android:id="@+id/input"
             android:layout_width="200dip"
@@ -64,11 +64,12 @@
             android:layout_height="wrap_content"
             android:onClick="addText"
             android:text="Send"/>
-    
-    </LinearLayout> 
-    
+
+    </LinearLayout>
+
 </LinearLayout>
-  
+
+
 
 
 
