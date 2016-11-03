@@ -5,7 +5,7 @@
     android:paddingBottom="5dip"
     android:paddingLeft="5dip" 
     android:paddingRight="5dip"
-    android:layout_width="fill_parent" 
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:background="@drawable/shape_whatsapp_date"> 
 
@@ -15,7 +15,8 @@
         android:layout_height="wrap_content"
         android:textColor="@color/white"
         android:textSize="12dip"
-        android:text="Here goes the date"/> 
+        android:text="Here goes the date"
+        android:typeface="sans" />
         
 </RelativeLayout> 
 

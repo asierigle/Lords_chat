@@ -16,7 +16,8 @@
         android:textColor="@color/black"
         android:textSize="28dp"
         android:text="-"
-        android:id="@+id/title"/>
+        android:id="@+id/title"
+        android:typeface="sans"/>
 
 
     <ListView android:id="@+id/conversation"
@@ -49,11 +50,12 @@
             android:layout_width="200dip"
             android:layout_height="50dip"
             android:paddingLeft="4dp"
-            android:hint="Type text here"
+            android:hint=" Type text here"
             android:background="@color/grey"
             android:textColor="@color/orange"
             android:inputType="textNoSuggestions|textVisiblePassword"
-            android:text="" />
+            android:text=""
+            android:typeface="sans" />
 
         <!-- without: android:inputType is multi-line by default (CR instead of DONE softkey)
                       android:inputType="textCapSentences|textAutoCorrect|            -->
@@ -63,7 +65,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="addText"
-            android:text="Send"/>
+            android:text="Send"
+            android:typeface="sans" />
 
     </LinearLayout>
 
