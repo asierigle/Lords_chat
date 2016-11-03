@@ -17,13 +17,16 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Lords Mobile chat "
+        android:text="Lords Mobile chat for Android!"
         android:textColor="@color/white"
         android:id="@+id/textView"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:typeface="sans"
+        android:textStyle="bold"
+        android:textSize="20dp" />
 
     <EditText
-        android:layout_width="300dp"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:inputType="number"
         android:ems="10"
@@ -31,10 +34,12 @@
         android:focusable="true"
         android:selectAllOnFocus="true"
         android:layout_gravity="center_horizontal"
-        android:text="Server" />
+        android:hint="Server"
+        android:typeface="sans"
+        android:textStyle="bold|italic" />
 
     <EditText
-        android:layout_width="300dp"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:inputType="numberSigned"
         android:focusable="true"
@@ -42,23 +47,29 @@
         android:ems="10"
         android:id="@+id/portET"
         android:layout_gravity="center_horizontal"
-        android:text="Port" />
+        android:hint="Port"
+        android:typeface="sans"
+        android:textStyle="bold|italic" />
 
     <EditText
-        android:layout_width="300dp"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Username"
+        android:hint="Username"
         android:focusable="true"
         android:selectAllOnFocus="true"
         android:ems="10"
         android:id="@+id/usernameET"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:typeface="sans"
+        android:textStyle="bold|italic" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Continue"
         android:id="@+id/mainButton"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:typeface="sans"
+        android:textStyle="bold" />
 </LinearLayout>

@@ -21,8 +21,8 @@ public class Activity5 extends Activity {
   private EditText input_text;
   private TextView title;
   private String user;
-
-  public Calendar calendar;
+  private int currentTime;
+  private Calendar calendar;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {

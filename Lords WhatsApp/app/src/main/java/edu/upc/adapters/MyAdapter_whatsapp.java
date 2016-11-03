@@ -23,7 +23,7 @@ import java.util.GregorianCalendar;
 
 /**
  *
- * @author juanluis
+ * @author samuelns and asierigle
  */
 public class MyAdapter_whatsapp extends BaseAdapter {
 
