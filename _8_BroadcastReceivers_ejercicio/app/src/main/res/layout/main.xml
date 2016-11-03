@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:layout_marginLeft="10dip">
+    <TextView  
+        android:layout_width="fill_parent" 
+        android:layout_height="wrap_content"
+        android:text="Different options:"
+        android:textSize="20dp"
+        android:layout_margin="20dip"/>  
+        
+    <LinearLayout
+              android:orientation="horizontal"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content">            
+        
+        <Button
+            android:id="@+id/registerTimeTick"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="registerTimeTick" />
+
+        <Button
+            android:id="@+id/unregisterTimeTick"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="unregisterTimeTick" 
+            android:layout_marginBottom="5dip"/>
+        
+    </LinearLayout>
+
+    <LinearLayout
+              android:orientation="horizontal"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content">            
+        
+        <Button
+            android:id="@+id/startBatteryService"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="startBatteryService" />
+
+        <Button
+            android:id="@+id/stopBatteryService"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="stopBatteryService"
+            android:layout_marginBottom="5dip"/>
+        
+    </LinearLayout>
+
+    <LinearLayout
+              android:orientation="horizontal"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content">  
+    
+        <Button
+            android:id="@+id/broadcast"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="broadcast hello"/>
+
+        <Button
+            android:id="@+id/stickybroadcast"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="remove sticky broadcast"
+            android:layout_marginBottom="5dip"/>
+
+    </LinearLayout>
+    
+    <LinearLayout
+              android:orientation="horizontal"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content">  
+    
+        <Button
+            android:id="@+id/setalarm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="activar alarma"/>
+
+        <Button
+            android:id="@+id/resetalarm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="desactivar alarma"
+            android:layout_marginBottom="5dip"/>
+
+    </LinearLayout>
+    
+    <LinearLayout
+              android:orientation="horizontal"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content">  
+    
+        <Button
+            android:id="@+id/enablebootreceiver"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="enable BootReceiver"/>
+
+        <Button
+            android:id="@+id/disablebootreceiver"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="disable BootReceiver"
+            android:layout_marginBottom="5dip"/>
+
+    </LinearLayout>
+    
+    <LinearLayout
+              android:orientation="horizontal"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content">  
+    
+        <Button
+            android:id="@+id/activity2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Activity2"/>
+
+
+    </LinearLayout>
+        
+</LinearLayout>
+

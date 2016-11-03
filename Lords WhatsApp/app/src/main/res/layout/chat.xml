@@ -10,14 +10,13 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
         android:textColor="@color/black"
-        android:textSize="28dp"
-        android:text="-"
+        android:textSize="20dp"
+        android:text="isudefuiwea"
         android:id="@+id/title"
-        android:typeface="sans"/>
+        android:typeface="sans"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="4dp" />
 
 
     <ListView android:id="@+id/conversation"
@@ -47,7 +46,7 @@
 
         <EditText
             android:id="@+id/input"
-            android:layout_width="200dip"
+            android:layout_width="294dp"
             android:layout_height="50dip"
             android:paddingLeft="4dp"
             android:hint=" Type text here"

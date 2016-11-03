@@ -13,7 +13,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-public class Activity5 extends Activity {
+public class Chat_Activity extends Activity {
 
   private ListView conversation;
   private MyAdapter_whatsapp adapter;
@@ -27,7 +27,7 @@ public class Activity5 extends Activity {
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.main5_v0);
+    setContentView(R.layout.chat);
 
     conversation = (ListView) findViewById(R.id.conversation);
     messages = new ArrayList<Message>();
@@ -62,14 +62,14 @@ public class Activity5 extends Activity {
       messages.add(tmp);
     }
     //...
-    
+
     conversation.post(new Runnable() {
         @Override
         public void run() {
             conversation.setSelection(conversation.getCount() - 1);
         }
     });
-    
+
     adapter.notifyDataSetChanged();
   }
 

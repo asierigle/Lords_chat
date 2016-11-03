@@ -12,14 +12,14 @@
       
     <application android:label="@string/app_name" android:theme="@style/OrangeTheme">
         
-        <activity android:name=".Activity0">
+        <activity android:name=".Auth_Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".Activity5"
+        <activity android:name=".Chat_Activity"
                   android:windowSoftInputMode="stateHidden"/>
         <!--                  android:theme="@style/OrangeTheme.myScrollBar"   -->
                   

@@ -64,7 +64,7 @@ public class MyAdapter_whatsapp extends BaseAdapter {
       viewHolder.text  = (TextView)  convertView.findViewById(R.id.texto);
       convertView.setTag(viewHolder);
     }
-    
+
     viewHolder = (ViewHolder)convertView.getTag();
     if(getItemViewType(position) == 0 || getItemViewType(position) == 1)
     {

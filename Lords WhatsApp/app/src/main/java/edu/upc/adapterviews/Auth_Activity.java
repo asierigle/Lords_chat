@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class Activity0 extends Activity implements View.OnClickListener {
+public class Auth_Activity extends Activity implements View.OnClickListener {
   private EditText labelServer;
   private EditText labelUser;
   private EditText labelPort;
@@ -18,14 +18,14 @@ public class Activity0 extends Activity implements View.OnClickListener {
   public void onCreate(Bundle savedInstanceState)
   {
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.main);
+    setContentView(R.layout.auth);
     ((Button) findViewById(R.id.mainButton)).setOnClickListener(this);
   }
 
   public void onClick(View arg0)
   {
     if (arg0 == findViewById(R.id.mainButton)) {
-      Intent intent = new Intent(this, Activity5.class);
+      Intent intent = new Intent(this, Chat_Activity.class);
 
       labelServer = (EditText) findViewById(R.id.serverET);
       labelPort = (EditText) findViewById(R.id.portET);

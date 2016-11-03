@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+      package="edu.upc.broadcast"
+      android:versionCode="1"
+      android:versionName="1.0">
+    
+    <uses-sdk android:minSdkVersion="14"
+              android:targetSdkVersion="14"
+              android:maxSdkVersion="14" />
+          
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <application android:label="@string/app_name"
+                 android:name=".application._Application" 
+                 android:theme="@android:style/Theme.Light">
+        
+        <activity android:name=".Activity1"
+                  android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+        <activity android:name=".Activity2"/>
+        
+        <service android:name=".service.BatteryService">
+            <intent-filter>
+                <action android:name="edu.upc.BatteryService" />
+            </intent-filter>
+        </service>
+        
+        <receiver android:name=".receiver.BootReceiver" android:enabled="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        
+        <!-- this registration is useless as specified at the API: 
+             this action can not be used in Manifest, only registration by code -->
+        <receiver android:name=".receiver.BatteryReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BATTERY_CHANGED" />
+            </intent-filter>
+        </receiver>
+        
+        <receiver android:name=".receiver.BroadcastReceiver1" >
+            <intent-filter android:priority="100">
+                <action android:name="hello" />
+            </intent-filter>
+        </receiver>
+        
+        <receiver android:name=".receiver.BroadcastReceiver2" >
+            <intent-filter android:priority="90">
+                <action android:name="hello" />
+            </intent-filter>
+        </receiver>
+        
+    </application>
+</manifest> 
