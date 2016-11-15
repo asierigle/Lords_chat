@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 
 public class Chat_Activity extends Activity {
 
@@ -51,6 +52,7 @@ public class Chat_Activity extends Activity {
     calendar = Calendar.getInstance();
     int hour = calendar.get(Calendar.HOUR);
     int minute = calendar.get(Calendar.MINUTE);
+    Date date = new Date();
 
     if(input_text.getEditableText().toString().equals("")) return;
     else
@@ -58,8 +60,10 @@ public class Chat_Activity extends Activity {
       // Creates a new message and adds it into the array
       Message tmp = new Message();
       tmp.content = (user + " ha dicho:\n" + input_text.getEditableText().toString());
+      tmp.realDate = date;
       tmp.date = (hour + ":" + minute);
       messages.add(tmp);
+      input_text.setText("");
     }
     //...
 

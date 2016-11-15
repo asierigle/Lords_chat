@@ -81,7 +81,8 @@ public class MyAdapter_whatsapp extends BaseAdapter {
     if(getItemViewType(position) == 2)
     {
       Date date = new Date();
-      viewHolder.text.setText(date.toLocaleString());
+      viewHolder.text.setText(thisMessages.get(position).realDate.toLocaleString());
+
     }
     
     return convertView;
