@@ -65,7 +65,6 @@ public class Chat_Activity extends Activity {
       messages.add(tmp);
       input_text.setText("");
     }
-    //...
 
     conversation.post(new Runnable() {
         @Override

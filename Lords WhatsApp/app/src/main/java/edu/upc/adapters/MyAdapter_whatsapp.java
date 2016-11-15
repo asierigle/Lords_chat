@@ -17,9 +17,7 @@ import edu.upc.adapterviews.R;
 import edu.upc.util.Message;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
 
 /**
  *
