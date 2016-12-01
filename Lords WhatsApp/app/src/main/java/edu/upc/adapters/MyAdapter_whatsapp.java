@@ -79,7 +79,7 @@ public class MyAdapter_whatsapp extends BaseAdapter {
     if(getItemViewType(position) == 2)
     {
       Date date = new Date();
-      viewHolder.text.setText(thisMessages.get(position).realDate.toLocaleString());
+      viewHolder.text.setText(thisMessages.get(position).realDate.toString());
 
     }
     

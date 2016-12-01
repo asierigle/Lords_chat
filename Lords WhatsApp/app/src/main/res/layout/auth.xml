@@ -8,11 +8,13 @@
 
 
     <ImageView
-        android:layout_width="291dp"
-        android:layout_height="269dp"
+        android:layout_width="290dp"
+        android:layout_height="175dp"
         android:id="@+id/imageView"
         android:layout_gravity="center_horizontal"
-        android:background="@drawable/logo" />
+        android:background="@drawable/lo_logo"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -24,7 +26,8 @@
         android:typeface="sans"
         android:textStyle="bold"
         android:textSize="25dp"
-        android:layout_marginBottom="10dp" />
+        android:layout_marginBottom="10dp"
+        android:singleLine="false" />
 
     <EditText
         android:layout_width="250dp"
@@ -35,7 +38,7 @@
         android:focusable="true"
         android:selectAllOnFocus="true"
         android:layout_gravity="center_horizontal"
-        android:hint="Server here"
+        android:hint="Write Server here"
         android:typeface="sans"
         android:textStyle="italic" />
 
@@ -48,7 +51,7 @@
         android:ems="10"
         android:id="@+id/portET"
         android:layout_gravity="center_horizontal"
-        android:hint="Port here"
+        android:hint="Write Port here"
         android:typeface="sans"
         android:textStyle="italic" />
 
@@ -56,7 +59,7 @@
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:hint="Username here"
+        android:hint="Write your Username here"
         android:focusable="true"
         android:selectAllOnFocus="true"
         android:ems="10"
