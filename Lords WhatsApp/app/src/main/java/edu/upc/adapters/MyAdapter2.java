@@ -60,7 +60,7 @@ public class MyAdapter2 extends BaseAdapter {
     if(getItemViewType(position) == 0){
       Date date = new Date();
       ViewHolder1 viewHolder = (ViewHolder1)convertView.getTag();
-      viewHolder.date.setText(date.toLocaleString());
+      viewHolder.date.setText(date.toString());
       viewHolder.hour.setText(mStrings.get(position));
     }
     else{

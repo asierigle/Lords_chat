@@ -22,8 +22,6 @@ public class Chat_Activity extends Activity {
   private EditText input_text;
   private TextView title;
   private String user;
-  private int currentTime;
-  private Calendar calendar;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -49,9 +47,6 @@ public class Chat_Activity extends Activity {
   public void addText(final View view) {
 
     // Gets the current time
-    calendar = Calendar.getInstance();
-    int hour = calendar.get(Calendar.HOUR);
-    int minute = calendar.get(Calendar.MINUTE);
     Date date = new Date();
 
     if(input_text.getEditableText().toString().equals("")) return;
@@ -61,7 +56,6 @@ public class Chat_Activity extends Activity {
       Message tmp = new Message();
       tmp.content = (user + " ha dicho:\n" + input_text.getEditableText().toString());
       tmp.realDate = date;
-      tmp.date = (hour + ":" + minute);
       messages.add(tmp);
       input_text.setText("");
     }

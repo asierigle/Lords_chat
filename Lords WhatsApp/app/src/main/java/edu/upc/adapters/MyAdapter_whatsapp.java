@@ -20,7 +20,6 @@ import java.util.ArrayList;
 import java.util.Date;
 
 /**
- *
  * @author samuelns and asierigle
  */
 public class MyAdapter_whatsapp extends BaseAdapter {
@@ -73,7 +72,7 @@ public class MyAdapter_whatsapp extends BaseAdapter {
         viewHolder.hour_text = (TextView)  convertView.findViewById(R.id.left_hour);
 
       viewHolder.text.setText(thisMessages.get(position).content);
-      viewHolder.hour_text.setText(thisMessages.get(position).date);
+      viewHolder.hour_text.setText(thisMessages.get(position).realDate.getHours() + ":" + thisMessages.get(position).realDate.getMinutes());
     }
 
     if(getItemViewType(position) == 2)

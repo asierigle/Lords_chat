@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">2_Adapters</string>
+    <string name="app_name">Lords Chat!</string>
+    <string name="auth_slogan">Lords Mobile chat for Android!</string>
+    <string name="auth_label_server">Write Server here</string>
+    <string name="auth_label_port">Write Port here</string>
+    <string name="auth_label_username">Write your Username here</string>
+    <string name="button_continue">Continue</string>
 </resources>

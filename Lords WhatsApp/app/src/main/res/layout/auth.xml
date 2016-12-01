@@ -19,7 +19,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Lords Mobile chat for Android!"
+        android:text="@string/auth_slogan"
         android:textColor="@color/white"
         android:id="@+id/textView"
         android:layout_gravity="center_horizontal"
@@ -38,7 +38,7 @@
         android:focusable="true"
         android:selectAllOnFocus="true"
         android:layout_gravity="center_horizontal"
-        android:hint="Write Server here"
+        android:hint="@string/auth_label_server"
         android:typeface="sans"
         android:textStyle="italic" />
 
@@ -51,7 +51,7 @@
         android:ems="10"
         android:id="@+id/portET"
         android:layout_gravity="center_horizontal"
-        android:hint="Write Port here"
+        android:hint="@string/auth_label_server"
         android:typeface="sans"
         android:textStyle="italic" />
 
@@ -59,7 +59,7 @@
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:hint="Write your Username here"
+        android:hint="@string/auth_label_username"
         android:focusable="true"
         android:selectAllOnFocus="true"
         android:ems="10"
@@ -71,7 +71,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Continue"
+        android:text="@string/button_continue"
         android:id="@+id/mainButton"
         android:layout_gravity="center_horizontal"
         android:typeface="sans"
