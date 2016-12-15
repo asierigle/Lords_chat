@@ -1,6 +1,7 @@
 package edu.upc.adapterviews;
 
 import edu.upc.adapters.MyAdapter_whatsapp;
+import edu.upc.util.LocalMessage;
 import edu.upc.util.Message;
 
 import android.app.Activity;
@@ -53,8 +54,9 @@ public class Chat_Activity extends Activity {
     else
     {
       // Creates a new message and adds it into the array
-      Message tmp = new Message();
-      tmp.content = (user + " ha dicho:\n" + input_text.getEditableText().toString());
+      Message tmp = new LocalMessage();
+      tmp.user = user;
+      tmp.content = (input_text.getEditableText().toString());
       tmp.realDate = date;
       messages.add(tmp);
       input_text.setText("");

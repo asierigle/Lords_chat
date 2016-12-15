@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import edu.upc.adapterviews.R;
+import edu.upc.util.LocalMessage;
 import edu.upc.util.Message;
 
 import java.util.ArrayList;
@@ -27,7 +28,8 @@ public class MyAdapter_whatsapp extends BaseAdapter {
   private Context mContext;
   private ArrayList<Message> thisMessages;
 
-  public MyAdapter_whatsapp(Context context, ArrayList<Message> messages) {
+  public MyAdapter_whatsapp(Context context, ArrayList<Message> messages)
+  {
     mContext = context;
     this.thisMessages = messages;
   }
@@ -36,25 +38,28 @@ public class MyAdapter_whatsapp extends BaseAdapter {
     return thisMessages.size();
   }
 
+
+ /* @Override
+  public View getView(int position, View convertView, ViewGroup parent) {
+    return getItem(position).getView(getContext(), convertView, parent);
+  }
+*/
   public View getView(int position, View convertView, ViewGroup parent) {
     
     ViewHolder viewHolder;
-    
+
     if(convertView==null){
-      if(getItemViewType(position) == 0)
+      if(thisMessages.get(position).)
       {
         convertView = LayoutInflater.from(mContext).inflate(R.layout.row_whatsapp_right, parent, false);
-
       }
       if(getItemViewType(position) == 1)
       {
         convertView = LayoutInflater.from(mContext).inflate(R.layout.row_whatsapp_left, parent, false);
-
       }
       if(getItemViewType(position) == 2)
       {
         convertView = LayoutInflater.from(mContext).inflate(R.layout.row_whatsapp_date, parent, false);
-
       }
 
       viewHolder = new ViewHolder();
@@ -84,7 +89,7 @@ public class MyAdapter_whatsapp extends BaseAdapter {
     
     return convertView;
   }
-  
+
   public class ViewHolder{
     TextView text;
     TextView hour_text;
