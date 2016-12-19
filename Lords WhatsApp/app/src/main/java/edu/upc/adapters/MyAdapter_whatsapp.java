@@ -9,12 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import edu.upc.adapterviews.R;
-import edu.upc.util.LocalMessage;
 import edu.upc.util.Message;
 
 import java.util.ArrayList;
@@ -39,60 +35,45 @@ public class MyAdapter_whatsapp extends BaseAdapter {
   }
 
 
- /* @Override
   public View getView(int position, View convertView, ViewGroup parent) {
-    return getItem(position).getView(getContext(), convertView, parent);
-  }
-*/
-  public View getView(int position, View convertView, ViewGroup parent) {
-    
-    ViewHolder viewHolder;
 
-    if(convertView==null){
-      if(thisMessages.get(position).)
-      {
-        convertView = LayoutInflater.from(mContext).inflate(R.layout.row_whatsapp_right, parent, false);
+      ViewHolder viewHolder;
+
+      if (convertView == null) {
+          if (getItemViewType(position) == 0) {
+              convertView = LayoutInflater.from(mContext).inflate(R.layout.row_whatsapp_right, parent, false);
+          }
+          if (getItemViewType(position) == 1) {
+              convertView = LayoutInflater.from(mContext).inflate(R.layout.row_whatsapp_left, parent, false);
+          }
+          if (getItemViewType(position) == 2) {
+              convertView = LayoutInflater.from(mContext).inflate(R.layout.row_whatsapp_date, parent, false);
+          }
+
+
+          viewHolder = new ViewHolder();
+          viewHolder.hour_text = (TextView) convertView.findViewById(R.id.hour);
+          viewHolder.text = (TextView) convertView.findViewById(R.id.texto);
+          convertView.setTag(viewHolder);
       }
-      if(getItemViewType(position) == 1)
-      {
-        convertView = LayoutInflater.from(mContext).inflate(R.layout.row_whatsapp_left, parent, false);
-      }
-      if(getItemViewType(position) == 2)
-      {
-        convertView = LayoutInflater.from(mContext).inflate(R.layout.row_whatsapp_date, parent, false);
+
+      viewHolder = (ViewHolder) convertView.getTag();
+      if (getItemViewType(position) == 0 || getItemViewType(position) == 1) {
+          viewHolder.text.setText(thisMessages.get(position).content);
+          viewHolder.hour_text.setText(thisMessages.get(position).realDate.getHours() + ":" + thisMessages.get(position).realDate.getMinutes());
       }
 
-      viewHolder = new ViewHolder();
-      viewHolder.text  = (TextView)  convertView.findViewById(R.id.texto);
-      convertView.setTag(viewHolder);
-    }
+      if (getItemViewType(position) == 2) {
+          Date date = new Date();
+          viewHolder.text.setText(thisMessages.get(position).realDate.getHours() + ":" + thisMessages.get(position).realDate.getMinutes());
+      }
 
-    viewHolder = (ViewHolder)convertView.getTag();
-    if(getItemViewType(position) == 0 || getItemViewType(position) == 1)
-    {
-      if(getItemViewType(position) == 0)
-        viewHolder.hour_text = (TextView)  convertView.findViewById(R.id.right_hour);
-
-      if(getItemViewType(position) == 1)
-        viewHolder.hour_text = (TextView)  convertView.findViewById(R.id.left_hour);
-
-      viewHolder.text.setText(thisMessages.get(position).content);
-      viewHolder.hour_text.setText(thisMessages.get(position).realDate.getHours() + ":" + thisMessages.get(position).realDate.getMinutes());
-    }
-
-    if(getItemViewType(position) == 2)
-    {
-      Date date = new Date();
-      viewHolder.text.setText(thisMessages.get(position).realDate.toString());
-
-    }
-    
-    return convertView;
+      return convertView;
   }
 
-  public class ViewHolder{
-    TextView text;
-    TextView hour_text;
+  public class ViewHolder {
+      TextView text;
+      TextView hour_text;
   }
 
   public Object getItem(int arg0) {
@@ -105,7 +86,7 @@ public class MyAdapter_whatsapp extends BaseAdapter {
   
   @Override
   public int getItemViewType(int position) {
-    return position % 3;
+      return thisMessages.get(position).type.ordinal();
   }
 
   @Override

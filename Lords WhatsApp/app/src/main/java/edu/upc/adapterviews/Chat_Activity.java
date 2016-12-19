@@ -1,7 +1,6 @@
 package edu.upc.adapterviews;
 
 import edu.upc.adapters.MyAdapter_whatsapp;
-import edu.upc.util.LocalMessage;
 import edu.upc.util.Message;
 
 import android.app.Activity;
@@ -12,7 +11,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 
 public class Chat_Activity extends Activity {
@@ -54,8 +52,7 @@ public class Chat_Activity extends Activity {
     else
     {
       // Creates a new message and adds it into the array
-      Message tmp = new LocalMessage();
-      tmp.user = user;
+      Message tmp = new Message();
       tmp.content = (input_text.getEditableText().toString());
       tmp.realDate = date;
       messages.add(tmp);
