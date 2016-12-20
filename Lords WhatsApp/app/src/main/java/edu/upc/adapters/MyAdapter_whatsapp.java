@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 /**
- * @author samuelns and asierigle
+ * @author samuelns and asierig
  */
 public class MyAdapter_whatsapp extends BaseAdapter {
 

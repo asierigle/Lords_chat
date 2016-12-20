@@ -108,40 +108,43 @@ public class Chat_Activity extends Activity {
   class RecieveMessages extends AsyncTask<Date, Void, ArrayList<Message>> {
     @Override
     protected ArrayList<Message> doInBackground(Date... GetFromDate) {
-      ArrayList<DMessages> mes = MessageREST.REST_retrieveFromDate(Server, Port, GetFromDate[0], user);
       ArrayList<Message> ret = new ArrayList<Message>();
 
-      // ------------------------- Transforming from D_Messages (database format) to Message(App format) ----------------------------------------
-      for (DMessages toTransform : mes) {
+        ArrayList<DMessages> mes = MessageREST.REST_retrieveFromDate(Server, Port, GetFromDate[0], user);
+        // ArrayList<Message> ret = new ArrayList<Message>();
 
-        MessageTypes type;
-        if (toTransform.getUserSender() == user) {
-          type = MessageTypes.local;
-        } else {
-          type = MessageTypes.Remote;
-        }
+        // ------------------------- Transforming from D_Messages (database format) to Message(App format) ----------------------------------------
+        for (DMessages toTransform : mes) {
 
-        Date date = toTransform.getDate();
-        String time;
-        time = new String();
-        time = time.concat(Integer.toString(date.getHours()));
-        time = time.concat(":");
-        int minutes = date.getMinutes();
-        if (minutes < 10) {
-          time = time.concat("0");
-        }
-        time = time.concat(Integer.toString(minutes));
-
-        if (messages.size() > 1) {
-          if (messages.get(messages.size() - 1).realDate.getDay() != date.getDay()) {
-            AddSystemDate();
+          MessageTypes type;
+          if (toTransform.getUserSender() == user) {
+            type = MessageTypes.local;
+          } else {
+            type = MessageTypes.Remote;
           }
-        }
 
-        Message toRecieve = new Message(toTransform.getContent(), type, time, date);
-        ret.add(toRecieve);
-      }
+          Date date = toTransform.getDate();
+          String time;
+          time = new String();
+          time = time.concat(Integer.toString(date.getHours()));
+          time = time.concat(":");
+          int minutes = date.getMinutes();
+          if (minutes < 10) {
+            time = time.concat("0");
+          }
+          time = time.concat(Integer.toString(minutes));
+
+          if (messages.size() > 1) {
+            if (messages.get(messages.size() - 1).realDate.getDay() != date.getDay()) {
+              AddSystemDate();
+            }
+          }
+
+          Message toRecieve = new Message(toTransform.getContent(), type, time, date);
+          ret.add(toRecieve);
+        }
       return ret;
+
     }
 
     @Override

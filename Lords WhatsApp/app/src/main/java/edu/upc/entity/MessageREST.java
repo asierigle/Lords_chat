@@ -1,20 +1,40 @@
 package edu.upc.entity;
 
-import android.util.JsonReader;
+
 import android.util.Log;
-/*
+
+import android.util.JsonReader;
+import android.util.JsonWriter;
+import android.util.Log;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-*/
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
+
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.HttpURLConnection;
+import java.net.ProtocolException;
+import java.net.Proxy;
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+
+
+
+import org.json.JSONTokener;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.json.JSONStringer;
+
 
 public class MessageREST {
 
@@ -25,32 +45,40 @@ public class MessageREST {
             //   package_name.message
             // open url connection
 
-            //URL url = new URL("http://citmalumnes.upc.es:3306/Dispositius/webresources/practica2.D_Messages/from");
-            URL url = new URL("http://localhost:1527/Dispositius/webresources/practica2.D_Messages/from");
+            //URL url = new URL("http://10.0.2.2:29547/D_Dispositius/webresources/practica2.dmessages/from");
+            URL url = new URL("http://"+server+":"+port+"/D_Dispositius/webresources/practica2.dmessages/");
+
             HttpURLConnection ucon = (HttpURLConnection)url.openConnection();
+            ucon.setConnectTimeout(8000);
 
             // set POST request method, DoInput and DoOutput
             // set "application/json" MIME type for both sending and receiving
+            try {
+                ucon.setRequestMethod("POST");
+            } catch (ProtocolException e) {
+                System.out.println("Failed to set to POST");
+                e.printStackTrace();
+            }
 
-            ucon.setRequestMethod("POST");
-            ucon.setRequestProperty("entity", message.toString());
-
-
-            ucon.setRequestProperty("text/plain", "application/json; charset=utf-8");
-            ucon.setDoInput(false);
             ucon.setDoOutput(true);
+            ucon.setRequestProperty("Content-Type", "application/json; charset=utf-8");
+            ucon.setRequestProperty("Accept", "application/json");
 
-            // open PrintWriter attached to url OutputStream
-            // create a GsonBuilder with date format
-            //   "yyyy-MM-dd'T'HH:mm:ss+02:00"
-            // print message as json text with toJson
-            // connect to url
+            JSONObject messageAsJson = new JSONObject();
+            messageAsJson.put("content", message.getContent());
+            messageAsJson.put("date", message.getDate());
+            messageAsJson.put("userSender", message.getUserSender());
+            messageAsJson.put("id", message.getId());
+            System.out.println(message.toString());
 
-            OutputStream output = ucon.getOutputStream();
+            String urlParameters = messageAsJson.toString();
 
+            DataOutputStream writter = new DataOutputStream(ucon.getOutputStream());
+            writter.writeBytes(urlParameters);
+            writter.flush();
+            writter.close();
 
             ucon.connect();
-
             int tmp = ucon.getResponseCode();
             Log.i("Tests", "TMP is " + tmp);
             if(tmp == HttpURLConnection.HTTP_OK)
@@ -81,44 +109,40 @@ public class MessageREST {
             //10.0.2.2
             //8080
 
-            //URL url = new URL("http://"+server+":"+port+"/D_Dispositius/webresources/practica2.DMessages/from");
-            URL url = new URL("http://10.0.2.2:29547/D_Dispositius/webresources/practica2.dmessages/from");
+            URL url = new URL("http://"+server+":"+port+"/D_Dispositius/webresources/practica2.dmessages/from");
+            //URL url = new URL("http://10.0.2.2:29547/D_Dispositius/webresources/practica2.dmessages/from");
             HttpURLConnection ucon = (HttpURLConnection)url.openConnection();
             ucon.setConnectTimeout(8000);
 
             // set POST request method, DoInput and DoOutput
             // set "application/json" MIME type for both sending and receiving
-            ucon.setRequestMethod("POST");
+            try {
+                ucon.setRequestMethod("POST");
+            } catch (ProtocolException e) {
+                System.out.println("Failed to set to POST");
+                e.printStackTrace();
+            }
             ucon.setDoInput(true);
             ucon.setDoOutput(true);
             ucon.setRequestProperty("Content-Type", "application/json; charset=utf-8");
             ucon.setRequestProperty("Accept", "application/json");
 
 
-            // open PrintWriter attached to url OutputStream
-            // create a GsonBuilder with date format
-            //   "yyyy-MM-dd'T'HH:mm:ss+02:00"
-            // print message with date as json text with toJson
-            // connect to url
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss+01:00");
 
-            PrintWriter writter = new PrintWriter(new OutputStreamWriter(ucon.getOutputStream()));
+            JSONObject dateAsObj = new JSONObject();
+            dateAsObj.put("date", date);
+            System.out.println(dateAsObj.toString());
 
-           /* GsonBuilder builder = new GsonBuilder();
-            builder.setDateFormat("yyyy-MM-dd'T'HH:mm:ss+00:00");
-            Gson gson = builder.create();
-            gson.toJson(date, writter);*/
+            String urlParameters = dateAsObj.toString();
+
+
+            DataOutputStream writter = new DataOutputStream(ucon.getOutputStream());
+            writter.writeBytes(urlParameters);
+            writter.flush();
+            writter.close();
 
             ucon.connect();
-
-            // open BufferedReader attached to url InputStream
-            // read response as List<Message> and optionally print to System.out
-            // there are two alternatives:
-            //   - distinguish between LocalMessage and RemoteMessage and
-            //     fill list accordingly. Read section
-            //     'Serializing and Deserializing Collection
-            //      with Objects of Arbitrary Types'
-            //     in Gson user's guide
-
 
 
             int tmp = ucon.getResponseCode();
@@ -134,14 +158,12 @@ public class MessageREST {
 
             ArrayList<DMessages> messages = new ArrayList<>();
 
-            JsonReader reader = new JsonReader(new InputStreamReader(ucon.getInputStream()));
-
-            reader.beginArray();
-            while (reader.hasNext()) {
-                // Leer objeto
-                messages.add(readMessage(reader));
+            BufferedReader in = new BufferedReader(new InputStreamReader(ucon.getInputStream()));
+            for(JsonElement el: new JsonParser().parse(in).getAsJsonArray())
+            {
+                messages.add(new Gson().fromJson(el, DMessages.class));
             }
-            reader.endArray();
+
 
             return messages;
 
